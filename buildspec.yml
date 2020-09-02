@@ -1,0 +1,10 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - echo nope
+
+  build:
+    commands:
+      - make deploy
