@@ -1,5 +1,9 @@
 FROM alpine:3.12
 
-USER root
+EXPOSE 53 53/udp
 
-CMD ["echo" , "test"]
+RUN apk --update upgrade && apk add bind bind-tools bind-plugins
+
+COPY named.conf /etc/bind/
+
+CMD ["/usr/sbin/named", "-f", "-g"]
