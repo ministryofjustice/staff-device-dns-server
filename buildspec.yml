@@ -1,5 +1,9 @@
 version: 0.1
 
+env:
+  parameter-store:
+    REGISTRY_URL: "/codebuild/dhcp/$ENV/ecr/endpoint"
+
 phases:
   install:
     commands:
