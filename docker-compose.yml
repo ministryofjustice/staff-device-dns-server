@@ -2,3 +2,5 @@ version: '3'
 services:
   dns:
     build: ./dns-service
+    environment:
+      LOCAL_DEVELOPMENT: "true"
