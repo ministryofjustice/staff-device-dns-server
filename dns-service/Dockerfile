@@ -2,7 +2,7 @@ FROM alpine:3.12
 
 EXPOSE 53 53/udp
 
-RUN apk --update upgrade && apk add bind bind-tools bind-plugins
+RUN apk --update upgrade && apk add bind bind-tools bind-plugins awscli
 
 WORKDIR /home
 RUN chown root:root /home
