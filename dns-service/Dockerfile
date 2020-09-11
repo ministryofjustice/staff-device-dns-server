@@ -4,6 +4,10 @@ EXPOSE 53 53/udp
 
 RUN apk --update upgrade && apk add bind bind-tools bind-plugins
 
-COPY named.conf /etc/bind/
+WORKDIR /home
+RUN chown root:root /home
 
-CMD ["/usr/sbin/named", "-f", "-g"]
+COPY test_named.conf named.conf
+COPY ./bootstrap.sh ./bootstrap.sh
+
+CMD ["./bootstrap.sh"]
