@@ -18,7 +18,6 @@ RUN apk add --update --no-cache --virtual deps g++ make openssl-dev bind-dev \
 WORKDIR /home
 RUN chown root:root /home
 
-COPY test_named.conf named.conf
 COPY ./bootstrap.sh ./bootstrap.sh
 
 CMD ["./bootstrap.sh"]

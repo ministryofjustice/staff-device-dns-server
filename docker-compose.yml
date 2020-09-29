@@ -4,3 +4,5 @@ services:
     build: ./dns-service
     environment:
       LOCAL_DEVELOPMENT: "true"
+    volumes:
+      - ./dns-service/test_named.conf:/home/named.conf
