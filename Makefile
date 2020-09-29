@@ -15,13 +15,13 @@ build-dev:
 stop:
 	$(DOCKER_COMPOSE) down -v
 
-run: 
-	$(DOCKER_COMPOSE) up --build
+run:
+	$(DOCKER_COMPOSE) up --build dns
 
 test:
-	echo "no test yet"
+	$(DOCKER_COMPOSE) run --rm dns-test ./dns_test
 
 shell:
-	$(DOCKER_COMPOSE) run --rm dns bin/sh
+	$(DOCKER_COMPOSE) run --rm dns sh
 
 .PHONY: build deploy test shell stop build-dev
