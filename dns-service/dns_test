@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Running dnsperf..."
+# -s DNS server address
+# -d query file path
+# -c number of clients
+# -Q nuber of requests per second
+# -t timeout (seconds)
+dnsperf -s dns \
+        -d test_queryfile \
+        -c 1 \
+        -Q 10 \
+        -t 15

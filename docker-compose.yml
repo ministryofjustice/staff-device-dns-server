@@ -6,3 +6,11 @@ services:
       LOCAL_DEVELOPMENT: "true"
     volumes:
       - ./dns-service/test_named.conf:/home/named.conf
+
+  dns-test:
+    build: ./dns-service
+    depends_on:
+      - dns
+    volumes:
+      - ./dns-service/dns_test:/home/dns_test
+      - ./dns-service/test_queryfile:/home/test_queryfile
