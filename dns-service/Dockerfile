@@ -7,7 +7,6 @@ RUN apk add --update --no-cache --virtual deps g++ make openssl-dev bind-dev \
   && wget https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.4.tar.gz \
   && tar zxvf dnsperf-2.3.4.tar.gz \
   && cd dnsperf-2.3.4 \
-  && ls \
   && sh configure \
   && make \
   && strip ./src/dnsperf ./src/resperf \

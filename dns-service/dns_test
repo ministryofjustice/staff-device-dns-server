@@ -12,7 +12,7 @@ dnsperf -s dns \
         -Q 10 \
         -t 15 > ./test_result
 
-has_completed_all_queries=`cat ./test_result | grep "Queries completed:    11 (100.00%)"`
+has_completed_all_queries=`cat ./test_result | grep "Queries completed:    10 (100.00%)"`
 
 if [[ -n $has_completed_all_queries ]]; then
   echo "Succeeded querying"
