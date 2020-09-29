@@ -22,6 +22,6 @@ test:
 	$(DOCKER_COMPOSE) run --rm dns-test ./dns_test
 
 shell:
-	$(DOCKER_COMPOSE) run --rm dns bin/sh
+	$(DOCKER_COMPOSE) run --rm dns sh
 
 .PHONY: build deploy test shell stop build-dev
