@@ -2,13 +2,7 @@
 
 set -ex
 
-test=$LOGGING_TERRAFORM_OUTPUTS
-
-echo $test
-
 repository_url=$( jq -r '.dns.ecr.repository_url' <<< "${LOGGING_TERRAFORM_OUTPUTS}" )
-
-echo $repository_url
 
 aws ecr get-login-password | docker login --username AWS --password-stdin ${repository_url}
 docker tag docker_dns:latest ${repository_url}:latest
