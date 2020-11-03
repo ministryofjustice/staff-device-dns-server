@@ -12,5 +12,5 @@ services:
     depends_on:
       - dns
     volumes:
-      - ./dns-service/dns_test:/home/dns_test
+      - ./scripts/test:/home/dns_test
       - ./dns-service/test_queryfile:/home/test_queryfile
