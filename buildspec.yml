@@ -2,13 +2,11 @@ version: 0.1
 
 env:
   parameter-store:
-    REGISTRY_URL: "/codebuild/dhcp/$ENV/ecr/endpoint"
+    LOGGING_TERRAFORM_OUTPUTS: "/terraform_logging/$ENV/outputs"
+    ROLE_ARN: "/codebuild/pttp-ci-infrastructure-core-pipeline/$ENV/assume_role"
 
 phases:
-  install:
-    commands:
-      - echo nope
-
   build:
     commands:
+      - make publish
       - make deploy
