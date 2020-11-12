@@ -1,0 +1,59 @@
+{
+  "json-stats-version": "1.5",
+  "boot-time": "2020-11-12T09:22:28.109Z",
+  "config-time": "2020-11-12T09:22:28.149Z",
+  "current-time": "2020-11-12T11:51:57.051Z",
+  "version": "9.16.6",
+  "views": {
+    "_default": {
+      "zones": [
+        {
+          "name": "127.in-addr.arpa",
+          "class": "IN",
+          "serial": 2002081601,
+          "type": "master",
+          "loaded": "2020-08-28T17:03:37Z"
+        },
+        {
+          "name": "localhost",
+          "class": "IN",
+          "serial": 2002081601,
+          "type": "master",
+          "loaded": "2020-08-28T17:03:37Z"
+        }
+      ]
+    },
+    "_bind": {
+      "zones": [
+        {
+          "name": "authors.bind",
+          "class": "CH",
+          "serial": 0,
+          "type": "builtin",
+          "loaded": "2020-11-12T09:22:28Z"
+        },
+        {
+          "name": "hostname.bind",
+          "class": "CH",
+          "serial": 0,
+          "type": "builtin",
+          "loaded": "2020-11-12T09:22:28Z"
+        },
+        {
+          "name": "version.bind",
+          "class": "CH",
+          "serial": 0,
+          "type": "builtin",
+          "loaded": "2020-11-12T09:22:28Z"
+        },
+        {
+          "name": "id.server",
+          "class": "CH",
+          "serial": 0,
+          "type": "builtin",
+          "loaded": "2020-11-12T09:22:28Z"
+        }
+      ]
+    }
+  }
+}
