@@ -1,0 +1,149 @@
+{
+  "json-stats-version": "1.5",
+  "boot-time": "2020-11-12T12:12:54.767Z",
+  "config-time": "2020-11-12T12:12:54.807Z",
+  "current-time": "2020-11-12T12:25:58.826Z",
+  "version": "9.16.6",
+  "opcodes": {
+    "QUERY": 10,
+    "IQUERY": 0,
+    "STATUS": 0,
+    "RESERVED3": 0,
+    "NOTIFY": 0,
+    "UPDATE": 0,
+    "RESERVED6": 0,
+    "RESERVED7": 0,
+    "RESERVED8": 0,
+    "RESERVED9": 0,
+    "RESERVED10": 0,
+    "RESERVED11": 0,
+    "RESERVED12": 0,
+    "RESERVED13": 0,
+    "RESERVED14": 0,
+    "RESERVED15": 0
+  },
+  "rcodes": {
+    "NOERROR": 5,
+    "FORMERR": 0,
+    "SERVFAIL": 2,
+    "NXDOMAIN": 3,
+    "NOTIMP": 0,
+    "REFUSED": 0,
+    "YXDOMAIN": 0,
+    "YXRRSET": 0,
+    "NXRRSET": 0,
+    "NOTAUTH": 0,
+    "NOTZONE": 0,
+    "RESERVED11": 0,
+    "RESERVED12": 0,
+    "RESERVED13": 0,
+    "RESERVED14": 0,
+    "RESERVED15": 0,
+    "BADVERS": 0,
+    "17": 0,
+    "18": 0,
+    "19": 0,
+    "20": 0,
+    "21": 0,
+    "22": 0,
+    "BADCOOKIE": 0
+  },
+  "qtypes": {
+    "A": 8,
+    "MX": 1,
+    "AAAA": 1
+  },
+  "nsstats": {
+    "Requestv4": 10,
+    "Response": 10,
+    "QrySuccess": 4,
+    "QryNoauthAns": 8,
+    "QryNxrrset": 1,
+    "QrySERVFAIL": 2,
+    "QryNXDOMAIN": 3,
+    "QryRecursion": 10,
+    "QryUDP": 10
+  },
+  "views": {
+    "_default": {
+      "resolver": {
+        "stats": {
+          "Queryv4": 21,
+          "Responsev4": 13,
+          "NXDOMAIN": 3,
+          "SERVFAIL": 2,
+          "Retry": 8,
+          "QueryTimeout": 8,
+          "QryRTT100": 10,
+          "QryRTT500": 3,
+          "BucketSize": 128,
+          "ClientCookieOut": 21,
+          "ServerQuota": 1
+        },
+        "qtypes": {
+          "A": 17,
+          "MX": 1,
+          "AAAA": 3
+        },
+        "cache": {
+          "A": 3,
+          "CNAME": 3,
+          "RRSIG": 1,
+          "!MX": 1,
+          "!AAAA": 1,
+          "NXDOMAIN": 3
+        },
+        "cachestats": {
+          "CacheHits": 0,
+          "CacheMisses": 13,
+          "QueryHits": 0,
+          "QueryMisses": 13,
+          "DeleteLRU": 0,
+          "DeleteTTL": 0,
+          "CacheNodes": 14,
+          "CacheBuckets": 524288,
+          "TreeMemTotal": 4496811,
+          "TreeMemInUse": 4240835,
+          "TreeMemMax": 4240883,
+          "HeapMemTotal": 352256,
+          "HeapMemInUse": 96320,
+          "HeapMemMax": 96320
+        },
+        "adb": {
+          "nentries": 1021,
+          "entriescnt": 2,
+          "nnames": 1021
+        }
+      }
+    },
+    "_bind": {
+      "resolver": {
+        "stats": {
+          "BucketSize": 128
+        },
+        "qtypes": {},
+        "cache": {},
+        "cachestats": {
+          "CacheHits": 0,
+          "CacheMisses": 0,
+          "QueryHits": 0,
+          "QueryMisses": 0,
+          "DeleteLRU": 0,
+          "DeleteTTL": 0,
+          "CacheNodes": 0,
+          "CacheBuckets": 524288,
+          "TreeMemTotal": 4495464,
+          "TreeMemInUse": 4235712,
+          "TreeMemMax": 4235840,
+          "HeapMemTotal": 262144,
+          "HeapMemInUse": 6208,
+          "HeapMemMax": 6208
+        },
+        "adb": {
+          "nentries": 1021,
+          "nnames": 1021
+        }
+      }
+    }
+  }
+}

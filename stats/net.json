@@ -1,0 +1,67 @@
+{
+  "json-stats-version": "1.5",
+  "boot-time": "2020-11-12T09:22:28.109Z",
+  "config-time": "2020-11-12T09:22:28.149Z",
+  "current-time": "2020-11-12T12:06:10.688Z",
+  "version": "9.16.6",
+  "sockstats": {
+    "UDP4Open": 8,
+    "TCP4Open": 4,
+    "TCP6Open": 1,
+    "RawOpen": 1,
+    "TCP4Close": 15,
+    "TCP6Close": 1,
+    "TCP6BindFail": 1,
+    "TCP4Accept": 16,
+    "UDP4Active": 10,
+    "TCP4Active": 5,
+    "RawActive": 1
+  },
+  "socketmgr": {
+    "sockets": [
+      {
+        "id": "0x7f34279b5188",
+        "references": 1,
+        "type": "not-initialized",
+        "local-address": "<unknown address, family 16>",
+        "states": [
+          "bound"
+        ]
+      },
+      {
+        "id": "0x7f34279b52f0",
+        "name": "statchannel",
+        "references": 1,
+        "type": "tcp",
+        "local-address": "127.0.0.1#8080",
+        "states": [
+          "listener",
+          "bound"
+        ]
+      },
+      {
+        "id": "0x7f342617f5c0",
+        "name": "control",
+        "references": 1,
+        "type": "tcp",
+        "local-address": "127.0.0.1#953",
+        "states": [
+          "listener",
+          "bound"
+        ]
+      },
+      {
+        "id": "0x7f342617f890",
+        "name": "httpd",
+        "references": 1,
+        "type": "tcp",
+        "peer-address": "127.0.0.1#39662",
+        "local-address": "127.0.0.1#8080",
+        "states": [
+          "connected",
+          "bound"
+        ]
+      }
+    ]
+  }
+}
