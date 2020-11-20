@@ -1,4 +1,5 @@
-FROM alpine:3.12
+ARG ACCOUNT_ID
+FROM ${ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/testing-alpine-image:latest
 
 EXPOSE 53 53/udp
 
