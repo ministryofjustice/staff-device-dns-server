@@ -10,7 +10,7 @@ deploy:
 	./scripts/deploy
 
 build-dev: check-container-registry-account-id
-	$(DOCKER_COMPOSE) build --build-arg ACCOUNT_ID=${ACCOUNT_ID}
+	$(DOCKER_COMPOSE) build --build-arg SHARED_SERVICES_ACCOUNT_ID=${SHARED_SERVICES_ACCOUNT_ID}
 
 publish: build
 	./scripts/publish
