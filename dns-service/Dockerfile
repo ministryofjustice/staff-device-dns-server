@@ -1,5 +1,5 @@
 ARG SHARED_SERVICES_ACCOUNT_ID
-FROM ${SHARED_SERVICES_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/alpine:latest
+FROM ${SHARED_SERVICES_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/dns:latest
 
 EXPOSE 53 53/udp
 
