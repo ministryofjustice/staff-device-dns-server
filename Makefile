@@ -1,13 +1,16 @@
 DOCKER_COMPOSE = docker-compose -f docker-compose.yml
 
-build:
+check-container-registry-account-id:
+	./scripts/check_container_registry_account_id
+
+build: check-container-registry-account-id
 	./scripts/build
 
 deploy:
 	./scripts/deploy
 
-build-dev:
-	$(DOCKER_COMPOSE) build
+build-dev: check-container-registry-account-id
+	$(DOCKER_COMPOSE) build --build-arg SHARED_SERVICES_ACCOUNT_ID=${SHARED_SERVICES_ACCOUNT_ID}
 
 publish: build
 	./scripts/publish
@@ -15,13 +18,13 @@ publish: build
 stop:
 	$(DOCKER_COMPOSE) down -v
 
-run:
-	$(DOCKER_COMPOSE) up -d --build dns
+run: build-dev
+	$(DOCKER_COMPOSE) up -d dns
 
 test: run
 	$(DOCKER_COMPOSE) run --rm dns-test ./dns_test
 
-shell:
+shell: build-dev
 	$(DOCKER_COMPOSE) run --rm dns sh
 
 .PHONY: build deploy test shell stop build-dev
