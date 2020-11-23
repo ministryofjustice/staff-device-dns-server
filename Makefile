@@ -1,5 +1,8 @@
 DOCKER_COMPOSE = docker-compose -f docker-compose.yml
 
+authenticate-docker:
+	./scripts/authenticate_docker
+
 check-container-registry-account-id:
 	./scripts/check_container_registry_account_id
 
