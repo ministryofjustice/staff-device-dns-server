@@ -3,3 +3,4 @@
 set -euo pipefail
 
 docker build -t docker_dns ./dns-service --build-arg SHARED_SERVICES_ACCOUNT_ID
+docker build -t nginx ./nginx --build-arg SHARED_SERVICES_ACCOUNT_ID
