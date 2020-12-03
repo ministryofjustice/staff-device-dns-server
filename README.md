@@ -38,6 +38,7 @@ $ make test
 ```
 
 ## Statistics
+
 [Enabling Statistics](https://bind9.readthedocs.io/en/latest/reference.html#the-statistics-file)
 
 [API format](https://bind9.readthedocs.io/en/latest/reference.html#statschannels)
@@ -46,3 +47,15 @@ server and resolver `curl localhost:8080/json/v1/server` [example](./stats/serve
 zones `curl localhost:8080/json/v1/zones` [example](./stats/zones.json)
 traffic `curl localhost:8080/json/v1/traffic`[example](./stats/traffic.json)
 network status and socket `curl localhost:8080/json/v1/net` [example](./stats/net.json)
+
+## Monitoring
+
+Metrics are displayed in the [IMA Grafana dashboard](https://github.com/ministryofjustice/staff-infrastructure-monitoring).
+The JSON that makes up the dashboard is stored in this repo, when updates are made, the JSON needs to be saved and tracked with version control.
+
+The metrics categories are:
+
+- AWS Service metrics
+- DNS metrics
+
+![Grafana Dashboard](./docs/dashboard.png)
