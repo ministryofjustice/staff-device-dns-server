@@ -15,7 +15,7 @@ start_dns_server() {
 }
 
 boot_metrics_agent() {
-  ruby ./metrics/agent.rb
+  ruby ./metrics/lib/agent.rb
 }
 
 main() {
