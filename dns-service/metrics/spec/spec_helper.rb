@@ -13,7 +13,9 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+RSPEC_ROOT = File.dirname __FILE__
 
+require 'timecop'
 require_relative '../lib/dns_metrics'
 
 RSpec.configure do |config|
