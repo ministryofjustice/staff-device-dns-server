@@ -25,9 +25,13 @@ run: build-dev
 	$(DOCKER_COMPOSE) up -d dns
 
 test: run
+	$(DOCKER_COMPOSE) run --rm dns-test rspec ./metrics/spec
 	$(DOCKER_COMPOSE) run --rm dns-test ./dns_test
 
 shell: build-dev
 	$(DOCKER_COMPOSE) run --rm dns sh
+
+shell-test: build-dev
+	$(DOCKER_COMPOSE) run --rm dns-test sh
 
 .PHONY: build deploy test shell stop build-dev

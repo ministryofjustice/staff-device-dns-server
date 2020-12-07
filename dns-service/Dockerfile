@@ -1,7 +1,7 @@
 ARG SHARED_SERVICES_ACCOUNT_ID
 FROM ${SHARED_SERVICES_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/dns:latest
 
-EXPOSE 53 53/udp
+ARG EXTRA_BUNDLE_CONFIG="without 'test'"
 
 RUN apk --update upgrade && apk add bash bind bind-tools bind-plugins aws-cli \
   && apk add --update --no-cache --virtual deps g++ make openssl-dev bind-dev \
@@ -13,11 +13,18 @@ RUN apk --update upgrade && apk add bash bind bind-tools bind-plugins aws-cli \
   && strip ./src/dnsperf ./src/resperf \
   && make install \
   && apk del deps \
-  && rm -rf /dnsperf-2.3.4* \ 
-  && chmod 644 /etc/bind/rndc.key 
+  && rm -rf /dnsperf-2.3.4* \
+  && chmod 644 /etc/bind/rndc.key
 
 WORKDIR /home
 
 COPY ./bootstrap.sh ./bootstrap.sh
+COPY ./metrics ./metrics
+
+RUN cd metrics && \
+  bundle config set no-cache 'true' ${EXTRA_BUNDLE_CONFIG} && \
+  bundle install
+
+EXPOSE 53 53/udp
 
 CMD ["./bootstrap.sh"]
