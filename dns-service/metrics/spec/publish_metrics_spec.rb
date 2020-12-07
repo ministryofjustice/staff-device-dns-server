@@ -2,9 +2,8 @@ require_relative 'spec_helper'
 
 describe PublishMetrics do
   let(:client) { spy }
-  let(:bind_stats) { [] }
   let!(:time) { DateTime.now.to_time }
-  let!(:timestamp) { time.to_i }
+  let(:timestamp) { time.to_i }
 
   before do
     Timecop.freeze(time)
@@ -18,7 +17,7 @@ describe PublishMetrics do
     expect {
       described_class.new(
         client: client
-      ).execute(bind_stats: bind_stats)
+      ).execute(bind_stats: [])
     }.to raise_error('BIND stats are empty')
   end
 
