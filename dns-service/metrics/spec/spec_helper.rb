@@ -16,6 +16,7 @@
 RSPEC_ROOT = File.dirname __FILE__
 
 require 'timecop'
+require 'webmock/rspec'
 require_relative '../lib/dns_metrics'
 
 RSpec.configure do |config|
