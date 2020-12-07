@@ -1,4 +1,4 @@
-require_relative 'spec_helper'
+require_relative "spec_helper"
 
 describe PublishMetrics do
   let(:client) { spy }
@@ -13,19 +13,19 @@ describe PublishMetrics do
     Timecop.return
   end
 
-  it 'raises an error if the BIND stats is empty' do
+  it "raises an error if the BIND stats is empty" do
     expect {
       described_class.new(
         client: client
       ).execute(bind_stats: [])
-    }.to raise_error('BIND stats are empty')
+    }.to raise_error("BIND stats are empty")
   end
 
-  it 'converts BIND stats to cloudwatch metrics and calls the client to publish them' do
+  it "converts BIND stats to cloudwatch metrics and calls the client to publish them" do
     bind_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_server_stats_response.json"))
 
     result = described_class.new(
-      client: client,
+      client: client
     ).execute(bind_stats: bind_stats)
 
     expected_result = [

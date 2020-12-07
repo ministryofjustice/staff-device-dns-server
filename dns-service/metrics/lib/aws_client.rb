@@ -1,8 +1,8 @@
-require 'aws-sdk-cloudwatch'
+require "aws-sdk-cloudwatch"
 
 class AwsClient
-  REGION="eu-west-2"
-  MAX_METRICS_PER_CLOUDWATCH_API_CALL=20
+  REGION = "eu-west-2"
+  MAX_METRICS_PER_CLOUDWATCH_API_CALL = 20
 
   def initialize(client: Aws::CloudWatch::Client.new(region: REGION), aws_config: {})
     @client = client
