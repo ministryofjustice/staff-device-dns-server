@@ -14,9 +14,14 @@ start_dns_server() {
   /usr/sbin/named -f -g -d 99
 }
 
+boot_metrics_agent() {
+  ruby ./metrics/agent.rb
+}
+
 main() {
   fetch_bind_config_file
   start_dns_server
+  boot_metrics_agent
 }
 
 main
