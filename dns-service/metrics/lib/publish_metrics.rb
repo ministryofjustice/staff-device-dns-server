@@ -1,4 +1,4 @@
-require 'time'
+require "time"
 
 class PublishMetrics
   def initialize(client:)
@@ -17,11 +17,11 @@ class PublishMetrics
   def generate_cloudwatch_metrics(bind_stats)
     return [] unless bind_stats.has_key?("nsstats")
 
-    bind_stats["nsstats"].map { |key,value| generate_metric(key, value) }.compact
+    bind_stats["nsstats"].map { |key, value| generate_metric(key, value) }.compact
   end
 
   def generate_metric(key, value)
-    { dimensions: [], metric_name: key, timestamp: @time, value: value }
+    {dimensions: [], metric_name: key, timestamp: @time, value: value}
   end
 
   attr_reader :client
