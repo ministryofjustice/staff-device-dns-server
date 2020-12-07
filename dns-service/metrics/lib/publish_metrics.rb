@@ -15,6 +15,8 @@ class PublishMetrics
   private
 
   def generate_cloudwatch_metrics(bind_stats)
+    return [] unless bind_stats.has_key?("nsstats")
+
     bind_stats["nsstats"].map { |key,value| generate_metric(key, value) }.compact
   end
 
