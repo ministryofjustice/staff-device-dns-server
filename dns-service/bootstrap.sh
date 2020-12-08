@@ -15,13 +15,13 @@ start_dns_server() {
 }
 
 boot_metrics_agent() {
-  ruby ./metrics/lib/agent.rb
+  ruby ./metrics/lib/agent.rb &
 }
 
 main() {
   fetch_bind_config_file
-  start_dns_server
   boot_metrics_agent
+  start_dns_server
 }
 
 main
