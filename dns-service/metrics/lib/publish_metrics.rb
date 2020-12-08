@@ -22,7 +22,7 @@ class PublishMetrics
   end
 
   def generate_zone_metrics(zone_stats)
-    return [] unless zone_stats.dig("views","_default","zones")
+    return [] unless zone_stats.dig("views", "_default", "zones")
 
     value = zone_stats["views"]["_default"]["zones"].count
     [generate_metric("ConfiguredRecords", value)]

@@ -23,8 +23,8 @@ describe BindClient do
           "views" => {
             "_default" => {
               "zones" => [
-                {"name"=>"test1.example.com"},
-                {"name"=>"test2.localhost"}
+                {"name" => "test1.example.com"},
+                {"name" => "test2.localhost"}
               ]
             }
           }
