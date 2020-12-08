@@ -22,7 +22,7 @@ stop:
 	$(DOCKER_COMPOSE) down -v
 
 run: build-dev
-	$(DOCKER_COMPOSE) up -d dns
+	$(DOCKER_COMPOSE) up dns
 
 test: run
 	$(DOCKER_COMPOSE) run --rm dns-test rspec ./metrics/spec

@@ -8,8 +8,8 @@ class PublishMetrics
   end
 
   def execute
-    server_stats = bind_client.server_stats
-    zone_stats = bind_client.zone_stats
+    server_stats = bind_client.get_server_stats
+    zone_stats = bind_client.get_zone_stats
 
     raise "BIND server stats are empty" if server_stats.empty?
     raise "BIND zones stats are empty" if zone_stats.empty?

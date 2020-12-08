@@ -14,7 +14,7 @@ describe PublishMetrics do
   end
 
   it "raises an error if the BIND stats is empty" do
-    bind_client = double(server_stats: {}, zone_stats: {test: "test"})
+    bind_client = double(get_server_stats: {}, get_zone_stats: {test: "test"})
 
     expect {
       described_class.new(
@@ -26,7 +26,7 @@ describe PublishMetrics do
 
   it "converts BIND stats to cloudwatch metrics and calls the client to publish them" do
     server_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_server_stats_response.json"))
-    bind_client = double(server_stats: server_stats, zone_stats: {test: "test"})
+    bind_client = double(get_server_stats: server_stats, get_zone_stats: {test: "test"})
 
     result = described_class.new(
       aws_client: aws_client,
@@ -94,7 +94,7 @@ describe PublishMetrics do
   end
 
   it "raises an error if the BIND zones stats is empty" do
-    bind_client = double(server_stats: {test: "test"}, zone_stats: {})
+    bind_client = double(get_server_stats: {test: "test"}, get_zone_stats: {})
 
     expect {
       described_class.new(
@@ -106,7 +106,7 @@ describe PublishMetrics do
 
   it "converts BIND zones stats to cloudwatch metrics and calls the client to publish them" do
     zone_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_zone_stats_response.json"))
-    bind_client = double(server_stats: {test: "test"}, zone_stats: zone_stats)
+    bind_client = double(get_server_stats: {test: "test"}, get_zone_stats: zone_stats)
 
     result = described_class.new(
       aws_client: aws_client,
