@@ -17,8 +17,8 @@ describe PublishMetrics do
     expect {
       described_class.new(
         client: client
-      ).execute(server_stats: [])
-    }.to raise_error("BIND stats are empty")
+      ).execute(server_stats: {}, zone_stats: {test: "test"})
+    }.to raise_error("BIND server stats are empty")
   end
 
   it "converts BIND stats to cloudwatch metrics and calls the client to publish them" do
@@ -26,7 +26,7 @@ describe PublishMetrics do
 
     result = described_class.new(
       client: client
-    ).execute(server_stats: server_stats)
+    ).execute(server_stats: server_stats, zone_stats: {test: "test"})
 
     expected_result = [
       {
@@ -81,6 +81,33 @@ describe PublishMetrics do
         metric_name: "QryUDP",
         timestamp: timestamp,
         value: 10,
+        dimensions: []
+      }
+    ]
+
+    expect(client).to have_received(:put_metric_data).with(match_array(expected_result))
+  end
+
+  it "raises an error if the BIND zones stats is empty" do
+    expect {
+      described_class.new(
+        client: client
+      ).execute(zone_stats: {}, server_stats: {test: "test"})
+    }.to raise_error("BIND zones stats are empty")
+  end
+
+  it "converts BIND zones stats to cloudwatch metrics and calls the client to publish them" do
+    zone_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_zone_stats_response.json"))
+
+    result = described_class.new(
+      client: client
+    ).execute(server_stats: {test: "test"}, zone_stats: zone_stats)
+
+    expected_result = [
+      {
+        metric_name: "ConfiguredRecords",
+        timestamp: timestamp,
+        value: 2,
         dimensions: []
       }
     ]
