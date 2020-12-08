@@ -17,16 +17,16 @@ describe PublishMetrics do
     expect {
       described_class.new(
         client: client
-      ).execute(bind_stats: [])
+      ).execute(server_stats: [])
     }.to raise_error("BIND stats are empty")
   end
 
   it "converts BIND stats to cloudwatch metrics and calls the client to publish them" do
-    bind_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_server_stats_response.json"))
+    server_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_server_stats_response.json"))
 
     result = described_class.new(
       client: client
-    ).execute(bind_stats: bind_stats)
+    ).execute(server_stats: server_stats)
 
     expected_result = [
       {
