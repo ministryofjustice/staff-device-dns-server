@@ -1,7 +1,7 @@
 require_relative "spec_helper"
 
 describe PublishMetrics do
-  let(:client) { spy }
+  let(:aws_client) { spy }
   let!(:time) { DateTime.now.to_time }
   let(:timestamp) { time.to_i }
 
@@ -14,19 +14,24 @@ describe PublishMetrics do
   end
 
   it "raises an error if the BIND stats is empty" do
+    bind_client = double(server_stats: {}, zone_stats: {test: "test"})
+
     expect {
       described_class.new(
-        client: client
-      ).execute(server_stats: {}, zone_stats: {test: "test"})
+        aws_client: aws_client,
+        bind_client: bind_client
+      ).execute
     }.to raise_error("BIND server stats are empty")
   end
 
   it "converts BIND stats to cloudwatch metrics and calls the client to publish them" do
     server_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_server_stats_response.json"))
+    bind_client = double(server_stats: server_stats, zone_stats: {test: "test"})
 
     result = described_class.new(
-      client: client
-    ).execute(server_stats: server_stats, zone_stats: {test: "test"})
+      aws_client: aws_client,
+      bind_client: bind_client
+    ).execute
 
     expected_result = [
       {
@@ -85,23 +90,28 @@ describe PublishMetrics do
       }
     ]
 
-    expect(client).to have_received(:put_metric_data).with(match_array(expected_result))
+    expect(aws_client).to have_received(:put_metric_data).with(match_array(expected_result))
   end
 
   it "raises an error if the BIND zones stats is empty" do
+    bind_client = double(server_stats: {test: "test"}, zone_stats: {})
+
     expect {
       described_class.new(
-        client: client
-      ).execute(zone_stats: {}, server_stats: {test: "test"})
+        aws_client: aws_client,
+        bind_client: bind_client
+      ).execute
     }.to raise_error("BIND zones stats are empty")
   end
 
   it "converts BIND zones stats to cloudwatch metrics and calls the client to publish them" do
     zone_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_zone_stats_response.json"))
+    bind_client = double(server_stats: {test: "test"}, zone_stats: zone_stats)
 
     result = described_class.new(
-      client: client
-    ).execute(server_stats: {test: "test"}, zone_stats: zone_stats)
+      aws_client: aws_client,
+      bind_client: bind_client
+    ).execute
 
     expected_result = [
       {
@@ -112,6 +122,6 @@ describe PublishMetrics do
       }
     ]
 
-    expect(client).to have_received(:put_metric_data).with(match_array(expected_result))
+    expect(aws_client).to have_received(:put_metric_data).with(match_array(expected_result))
   end
 end

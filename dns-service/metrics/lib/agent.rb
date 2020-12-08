@@ -12,11 +12,10 @@ end
 
 while true
   puts "before metrics"
-  server_stats = BindClient.new.get_server_stats
-  zone_stats = BindClient.new.get_zone_stats
   PublishMetrics.new(
-    client: AwsClient.new
-  ).execute(server_stats: server_stats, zone_stats: zone_stats)
+    aws_client: AwsClient.new,
+    bind_client: BindClient.new
+  ).execute
   puts "after metrics"
   sleep 10
 end

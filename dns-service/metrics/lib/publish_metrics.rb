@@ -1,16 +1,20 @@
 require "time"
 
 class PublishMetrics
-  def initialize(client:)
-    @client = client
+  def initialize(aws_client:, bind_client:)
+    @aws_client = aws_client
+    @bind_client = bind_client
     @time = DateTime.now.to_time.to_i
   end
 
-  def execute(server_stats:, zone_stats:)
+  def execute
+    server_stats = bind_client.server_stats
+    zone_stats = bind_client.zone_stats
+
     raise "BIND server stats are empty" if server_stats.empty?
     raise "BIND zones stats are empty" if zone_stats.empty?
 
-    client.put_metric_data(generate_cloudwatch_metrics(server_stats) + generate_zone_metrics(zone_stats))
+    aws_client.put_metric_data(generate_cloudwatch_metrics(server_stats) + generate_zone_metrics(zone_stats))
   end
 
   private
@@ -32,5 +36,5 @@ class PublishMetrics
     {dimensions: [], metric_name: key, timestamp: @time, value: value}
   end
 
-  attr_reader :client
+  attr_reader :aws_client, :bind_client
 end
