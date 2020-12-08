@@ -9,6 +9,8 @@ class AwsClient
   end
 
   def put_metric_data(metrics)
+    puts "#{metrics}"
+    puts "in metrics"
     sliced(metrics).each do |metrics_slice|
       client.put_metric_data(
         namespace: "DNS-Bind-Server",
