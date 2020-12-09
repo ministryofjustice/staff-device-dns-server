@@ -1,14 +1,17 @@
 class ApiChecker
   attr_reader :sleep_seconds
 
-  def initialize(sleep_seconds: 1)
+  SECONDS_TO_SLEEP_BETWEEN_CHECKS = 1
+  NUMBER_OF_API_CHECKS = 10
+
+  def initialize(sleep_seconds: SECONDS_TO_SLEEP_BETWEEN_CHECKS)
     @sleep_seconds = sleep_seconds
   end
 
   def execute
     is_up = false
 
-    10.times do
+    NUMBER_OF_API_CHECKS.times do
       BindClient.new.get_server_stats
     rescue Errno::EADDRNOTAVAIL
       sleep sleep_seconds
