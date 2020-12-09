@@ -11,11 +11,9 @@ else
 end
 
 while true
-  puts "before metrics"
   PublishMetrics.new(
     aws_client: AwsClient.new,
     bind_client: BindClient.new
   ).execute
-  puts "after metrics"
   sleep 10
 end
