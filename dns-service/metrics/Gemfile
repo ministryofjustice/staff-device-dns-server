@@ -2,12 +2,12 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
+git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem 'aws-sdk-cloudwatch'
+gem "aws-sdk-cloudwatch"
 
 group :test do
-  gem 'rspec'
-  gem 'timecop'
-  gem 'webmock'
+  gem "rspec"
+  gem "timecop"
+  gem "webmock"
 end
