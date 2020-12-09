@@ -28,7 +28,7 @@ describe PublishMetrics do
     server_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_server_stats_response.json"))
     bind_client = double(get_server_stats: server_stats, get_zone_stats: {test: "test"})
 
-    result = described_class.new(
+    described_class.new(
       aws_client: aws_client,
       bind_client: bind_client
     ).execute
@@ -108,7 +108,7 @@ describe PublishMetrics do
     zone_stats = JSON.parse(File.read("#{RSPEC_ROOT}/fixtures/bind_api_zone_stats_response.json"))
     bind_client = double(get_server_stats: {test: "test"}, get_zone_stats: zone_stats)
 
-    result = described_class.new(
+    described_class.new(
       aws_client: aws_client,
       bind_client: bind_client
     ).execute
