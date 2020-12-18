@@ -15,8 +15,8 @@ assume_deploy_role() {
 }
 
 deploy() {
-  cluster_name=$( jq -r '.dns.ecs.cluster_name' <<< "${LOGGING_TERRAFORM_OUTPUTS}" )
-  service_name=$( jq -r '.dns.ecs.service_name' <<< "${LOGGING_TERRAFORM_OUTPUTS}" )
+  cluster_name=$( jq -r '.dns.ecs.cluster_name' <<< "${DHCP_DNS_TERRAFORM_OUTPUTS}" )
+  service_name=$( jq -r '.dns.ecs.service_name' <<< "${DHCP_DNS_TERRAFORM_OUTPUTS}" )
 
   aws ecs update-service \
     --cluster $cluster_name \
