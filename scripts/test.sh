@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 echo "Running dnsperf..."
 # -s DNS server address
 # -d query file path
