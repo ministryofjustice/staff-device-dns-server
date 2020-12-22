@@ -1,6 +1,6 @@
 ## Bind Statistics
 
-[Enabling Statistics](https://bind9.readthedocs.io/en/latest/reference.html#the-statistics-file)
+Stastistics need to be [enabled](https://bind9.readthedocs.io/en/latest/reference.html#the-statistics-file) in Bind 9.
 
 [API format](https://bind9.readthedocs.io/en/latest/reference.html#statschannels)
 
