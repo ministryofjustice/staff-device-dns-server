@@ -37,6 +37,9 @@ To run the tests locally run
 $ make test
 ```
 
+This will spin up 2 containers, one acting as a DNS client and one as the [DNS server](https://www.isc.org/bind/).
+[DNSPerf](https://www.dnsperf.com/) is installed on the client container and is used to look up domains and ensure that the server is functioning as expected.
+
 ## Statistics
 
 [Enabling Statistics](https://bind9.readthedocs.io/en/latest/reference.html#the-statistics-file)
@@ -44,14 +47,18 @@ $ make test
 [API format](https://bind9.readthedocs.io/en/latest/reference.html#statschannels)
 
 server and resolver `curl localhost:8080/json/v1/server` [example](./stats/server_stats.json)
+
 zones `curl localhost:8080/json/v1/zones` [example](./stats/zones.json)
+
 traffic `curl localhost:8080/json/v1/traffic`[example](./stats/traffic.json)
+
 network status and socket `curl localhost:8080/json/v1/net` [example](./stats/net.json)
 
 ## Monitoring
 
 Metrics are displayed in the [IMA Grafana dashboard](https://github.com/ministryofjustice/staff-infrastructure-monitoring).
-The JSON that makes up the dashboard is stored in this repo, when updates are made, the JSON needs to be saved and tracked with version control.
+
+The JSON that makes up the dashboard is stored in the [IAM dashboard configuration repo](https://github.com/ministryofjustice/staff-infrastructure-monitoring-config), when updates are made in the dashboard, the JSON needs to be saved and tracked with version control.
 
 The metrics categories are:
 
