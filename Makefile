@@ -48,6 +48,6 @@ shell-test: build-dev
 	$(DOCKER_COMPOSE) run --rm dns-test sh
 
 logs: 
-	$(DOCKER_COMPOSE) logs
+	$(DOCKER_COMPOSE) logs --follow
 
 .PHONY: build push publish deploy build-dev stop run test shell shell-test logs authenticate-docker check-container-registry-account-id
