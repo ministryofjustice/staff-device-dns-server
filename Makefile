@@ -50,4 +50,4 @@ shell-test: build-dev
 logs: 
 	$(DOCKER_COMPOSE) logs
 
-.PHONY: build publish test shell stop start-db build-dev deploy
+.PHONY: build push publish deploy build-dev stop run test shell shell-test logs authenticate-docker check-container-registry-account-id
