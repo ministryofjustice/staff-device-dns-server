@@ -69,6 +69,32 @@ Statistics:
   Latency StdDev (s):   0.030665
 ```
 
+# Q = 100000 c = 1
+```
+dnsperf -s dns \
+        -d 1k_test_queryfile \
+        -c 1 \
+        -Q 100000 \
+        -t 2 \
+        -l 300
+```
+
+```
+Statistics:
+
+  Queries sent:         2138542
+  Queries completed:    2131786 (99.68%)
+  Queries lost:         6756 (0.32%)
+
+  Response codes:       NOERROR 1503331 (70.52%), SERVFAIL 31814 (1.49%), NXDOMAIN 596641 (27.99%)
+  Average packet size:  request 37, response 101
+  Run time (s):         300.202776
+  Queries per second:   7101.153522
+
+  Average Latency (s):  0.007689 (min 0.002625, max 1.998770)
+  Latency StdDev (s):   0.033808
+```
+
 # Q = 1000 c = 2
 ```
 dnsperf -s dns \
@@ -102,6 +128,120 @@ dnsperf -s dns \
         -Q 1000 \
         -t 2 \
         -l 300
+```
+```
+Statistics:
+
+  Queries sent:         300000
+  Queries completed:    299084 (99.69%)
+  Queries lost:         916 (0.31%)
+
+  Response codes:       NOERROR 210898 (70.51%), SERVFAIL 4486 (1.50%), NXDOMAIN 83700 (27.99%)
+  Average packet size:  request 37, response 101
+  Run time (s):         300.009098
+  Queries per second:   996.916434
+
+  Average Latency (s):  0.010197 (min 0.004673, max 1.982807)
+  Latency StdDev (s):   0.054080
+```
+# Q = 1000 c = 10
+```
+dnsperf -s dns \
+        -d 1k_test_queryfile \
+        -c 10 \
+        -Q 1000 \
+        -t 2 \
+        -l 300
+```
+```
+Statistics:
+
+  Queries sent:         300000
+  Queries completed:    299022 (99.67%)
+  Queries lost:         978 (0.33%)
+
+  Response codes:       NOERROR 210889 (70.53%), SERVFAIL 4438 (1.48%), NXDOMAIN 83695 (27.99%)
+  Average packet size:  request 37, response 101
+  Run time (s):         301.377897
+  Queries per second:   992.182914
+
+  Average Latency (s):  0.010574 (min 0.004689, max 1.999290)
+  Latency StdDev (s):   0.055929
+```
+
+# Q = 10000 c = 10
+```
+dnsperf -s dns \
+        -d 1k_test_queryfile \
+        -c 10 \
+        -Q 10000 \
+        -t 2 \
+        -l 300
+```
+```
+Statistics:
+
+  Queries sent:         2130455
+  Queries completed:    2124582 (99.72%)
+  Queries lost:         5873 (0.28%)
+
+  Response codes:       NOERROR 1497664 (70.49%), SERVFAIL 32519 (1.53%), NXDOMAIN 594399 (27.98%)
+  Average packet size:  request 37, response 101
+  Run time (s):         301.092793
+  Queries per second:   7056.236647
+
+  Average Latency (s):  0.008570 (min 0.004617, max 2.004626)
+  Latency StdDev (s):   0.033006
+```
+# Q = 100000 c = 100
+```
+dnsperf -s dns \
+        -d 1k_test_queryfile \
+        -c 100 \
+        -Q 100000 \
+        -t 2 \
+        -l 300
+```
+```
+Statistics:
+
+  Queries sent:         2130326
+  Queries completed:    2124498 (99.73%)
+  Queries lost:         5828 (0.27%)
+
+  Response codes:       NOERROR 1497562 (70.49%), SERVFAIL 32580 (1.53%), NXDOMAIN 594356 (27.98%)
+  Average packet size:  request 37, response 101
+  Run time (s):         301.444212
+  Queries per second:   7047.731937
+
+  Average Latency (s):  0.008386 (min 0.004533, max 1.998660)
+  Latency StdDev (s):   0.034866
+```
+
+# Q = 1000000 c = 1000
+```
+dnsperf -s dns \
+        -d 1k_test_queryfile \
+        -c 1000 \
+        -Q 1000000 \
+        -t 2 \
+        -l 300
+```
+
+```
+Statistics:
+
+  Queries sent:         2146678
+  Queries completed:    2141082 (99.74%)
+  Queries lost:         5596 (0.26%)
+
+  Response codes:       NOERROR 1509053 (70.48%), SERVFAIL 33119 (1.55%), NXDOMAIN 598910 (27.97%)
+  Average packet size:  request 37, response 101
+  Run time (s):         301.082723
+  Queries per second:   7111.274864
+
+  Average Latency (s):  0.008517 (min 0.004543, max 1.998600)
+  Latency StdDev (s):   0.035495
 ```
 
 
