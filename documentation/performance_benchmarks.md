@@ -30,7 +30,7 @@ dnsperf -s dns \
         -t 2 \
         -l 300
 ```
-- The ``test_queryfile has been sampled from a [test file](https://www.dns-oarc.net/files/dnsperf/data/queryfile-example-10million-201202.gz) containing 10 million records. The last 10K records were used.
+- The ``test_queryfile`` has been sampled from a [test file](https://www.dns-oarc.net/files/dnsperf/data/queryfile-example-10million-201202.gz) containing 10 million records. The last 10K records were used.
 
 - The ``-Q`` option limits the number of requests per second to a specific number, which is computed during the entire run of dnsperf.
 
