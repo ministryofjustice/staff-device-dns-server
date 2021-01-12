@@ -58,4 +58,8 @@ The metrics categories are:
 - AWS Service metrics
 - DNS metrics
 
-![Grafana Dashboard](./docs/dashboard.png)
+![Grafana Dashboard](./documentation/images/dashboard.png)
+
+# Performance Testing
+
+ Results of BIND 9 [performance test](./documentation/performance_benchmarks.md).
