@@ -4,13 +4,14 @@ This documentation contains the results of the load test conducted on the 11th o
 
 ## Current Configuration
 
-- Configured as a Forwarding DNS Server forwarding to Protective DNS ([PDNS](https://ncsc.gov.uk))
+Configured as a Forwarding DNS Server forwarding to Protective DNS ([PDNS](https://ncsc.gov.uk/information/pdnsß))
 
 ## Considerations
 
-Tests are run from a remote site in Corsham, this may introduce network latency
-The BIND configuration file is pulled from an S3 bucket.
-BIND publishes custom metrics to CloudWatch every 10 seconds, resource usage for this is minimal and not visible on the metrics below.
+- Tests are run from a remote site in Corsham, this may introduce network latency.
+
+- The BIND configuration file is pulled from an S3 bucket.
+BIND publishes custom metrics to CloudWatch every 10 seconds, resource usage for this is minimal and not visible in the metrics below.
 
 ## How to run the tests
 - To run the tests below follow the [Corsham test guide](https://github.com/ministryofjustice/staff-device-dns-dhcp-infrastructure/blob/main/documentation/corsham-test.md) 
@@ -35,9 +36,9 @@ dnsperf -s dns \
 
 ## Load Test Results
 
-The client and the request per second variables were incremented separately to view their affects on the performance. They were then increased simultaneously to provide a larger load on the server.
+The client and the request per second variables were incremented separately to isolate their effects on the performance. They were then increased simultaneously to send a larger load through the server.
 
-## Test 1 (Queries = 1K, Clients = 1):
+## Test 1 (Queries = 1K, Clients = 1)
 
 ```shell
 dnsperf -s dns \
