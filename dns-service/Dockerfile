@@ -1,5 +1,5 @@
 ARG SHARED_SERVICES_ACCOUNT_ID
-FROM ${SHARED_SERVICES_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/dns:latest
+FROM ${SHARED_SERVICES_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/dns:ruby-2-7-2-alpine3-12
 
 ARG EXTRA_BUNDLE_CONFIG="without 'test'"
 
