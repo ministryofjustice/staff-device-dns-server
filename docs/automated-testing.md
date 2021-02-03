@@ -1,4 +1,4 @@
-## Automated Testing
+# Automated Testing
 
 To run the tests locally run
 
