@@ -1,6 +1,25 @@
-version: '3'
+version: "3"
 services:
   dns:
-    build: ./dns-service
+    build: 
+      context: ./dns-service
+      args: 
+        SHARED_SERVICES_ACCOUNT_ID: "${SHARED_SERVICES_ACCOUNT_ID}"
     environment:
       LOCAL_DEVELOPMENT: "true"
+    volumes:
+      - ./dns-service/test_named.conf:/home/named.conf
+      - ./dns-service/metrics/:/home/metrics
+
+  dns-test:
+    build:
+      context: ./dns-service
+      args:
+        EXTRA_BUNDLE_CONFIG: ""
+        SHARED_SERVICES_ACCOUNT_ID: "${SHARED_SERVICES_ACCOUNT_ID}"
+    depends_on:
+      - dns
+    volumes:
+      - ./scripts/test.sh:/home/dns_test.sh
+      - ./dns-service/test_queryfile:/home/test_queryfile
+      - ./dns-service/metrics/:/home/metrics

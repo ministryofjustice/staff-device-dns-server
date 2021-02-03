@@ -11,11 +11,16 @@ fetch_bind_config_file() {
 }
 
 start_dns_server() {
-  /usr/sbin/named -f -g
+  /usr/sbin/named -f -g -d 99
+}
+
+boot_metrics_agent() {
+  ruby ./metrics/lib/agent.rb &
 }
 
 main() {
   fetch_bind_config_file
+  boot_metrics_agent
   start_dns_server
 }
 
