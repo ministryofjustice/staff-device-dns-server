@@ -1,12 +1,12 @@
-## Getting started
+# Getting started
 
-This images is pushed up to [Amazon ECR](https://aws.amazon.com/ecr/).
+This image is pushed to [Amazon ECR](https://aws.amazon.com/ecr/).
 To get started with development you will need:
 
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 
-### Authenticating Docker with AWS ECR
+## Authenticating Docker with AWS ECR
 
 The Docker base image is stored in ECR. Before you can build the app you need to authenticate Docker to the ECR registry. [Details can be found here](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html#registry_auth).
 
