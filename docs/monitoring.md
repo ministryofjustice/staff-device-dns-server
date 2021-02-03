@@ -1,4 +1,4 @@
-## Monitoring
+# Monitoring
 
 Metrics are displayed in the [IMA Grafana dashboard](https://github.com/ministryofjustice/staff-infrastructure-monitoring).
 

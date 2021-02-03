@@ -1,33 +1,32 @@
-## Bind Statistics
+# Bind Statistics
 
-Stastistics need to be [enabled](https://bind9.readthedocs.io/en/latest/reference.html#the-statistics-file) in Bind 9.
+Statistics need to be [enabled](https://bind9.readthedocs.io/en/latest/reference.html#the-statistics-file) in Bind 9.
 
 [API format](https://bind9.readthedocs.io/en/latest/reference.html#statschannels)
 
-### server and resolver 
+## Server and resolver
 
-`curl localhost:8080/json/v1/server` 
+`curl localhost:8080/json/v1/server`
 
 [example](./stats/server_stats.json)
 
-### zones 
+## Zones
 
-`curl localhost:8080/json/v1/zones` 
+`curl localhost:8080/json/v1/zones`
 
 [example](./stats/zones.json)
 
-### traffic 
+## Traffic
 
 `curl localhost:8080/json/v1/traffic`
 
 [example](./stats/traffic.json)
 
-### network status and socket 
+## Network status and socket
 
-`curl localhost:8080/json/v1/net` 
+`curl localhost:8080/json/v1/net`
 
 [example](./stats/net.json)
-
 
 ## Metrics agent
 
