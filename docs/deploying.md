@@ -1,4 +1,4 @@
-### Deploying
+# Deploying
 
 This service runs in 3 different environments:
 
