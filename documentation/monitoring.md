@@ -9,4 +9,4 @@ The metrics categories are:
 - AWS Service metrics
 - DNS metrics
 
-![Grafana Dashboard](./dashboard.png)
+![Grafana Dashboard](./images/dashboard.png)
