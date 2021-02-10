@@ -14,14 +14,14 @@ build-nginx:
 
 push-nginx:
 	aws ecr get-login-password | docker login --username AWS --password-stdin ${REGISTRY_URL}
-	docker tag nginx:latest ${REGISTRY_URL}/staff-device-${ENV}-dns-docker-nginx:latest
-	docker push ${REGISTRY_URL}/staff-device-${ENV}-dns-docker-nginx:latest
+	docker tag nginx:latest ${REGISTRY_URL}/staff-device-${ENV}-dns-nginx:latest
+	docker push ${REGISTRY_URL}/staff-device-${ENV}-dns-nginx:latest
 
 push:
 	echo ${REGISTRY_URL}
 	aws ecr get-login-password | docker login --username AWS --password-stdin ${REGISTRY_URL}
-	docker tag docker_dns:latest ${REGISTRY_URL}/staff-device-${ENV}-dns-docker:latest
-	docker push ${REGISTRY_URL}/staff-device-${ENV}-dns-docker:latest
+	docker tag docker_dns:latest ${REGISTRY_URL}/staff-device-${ENV}-dns:latest
+	docker push ${REGISTRY_URL}/staff-device-${ENV}-dns:latest
 
 publish: build push build-nginx push-nginx
 
