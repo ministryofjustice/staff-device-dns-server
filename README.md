@@ -5,9 +5,10 @@ This repository contains the Dockerfile to create the [BIND](https://www.isc.org
 This is a zone forwarding DNS server that doesn't resolve queries itself.
 Any internal zones will forward to internal DNS servers for resolution and any public DNS requests will go to the [NCSC protective DNS service](https://www.ncsc.gov.uk/information/pdns).
 
-- [Getting Started](./docs/getting-started.md)
-- [Deploying](./docs/deploying.md)
-- [Metrics](./docs/metrics.md)
-- [Monitoring](./docs/monitoring.md)
-- [Alerting](./docs/alerting.md)
-- [Health Checks](./docs/health-checks.md)
+- [Getting Started](./documentation/getting-started.md)
+- [Deploying](./documentation/deploying.md)
+- [Metrics](./documentation/metrics.md)
+- [Monitoring](./documentation/monitoring.md)
+- [Alerting](./documentation/alerting.md)
+- [Health Checks](./documentation/health-checks.md)
+- [Performance Testing](./documentation/performance_benchmarks.md)
