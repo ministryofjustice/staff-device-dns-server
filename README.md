@@ -12,4 +12,4 @@ Any internal zones will forward to internal DNS servers for resolution and any p
 - [Monitoring](./documentation/monitoring.md)
 - [Alerting](./documentation/alerting.md)
 - [Health Checks](./documentation/health-checks.md)
-- [Performance Testing](./documentation/performance_benchmarks.md)
+- [Performance Testing](./documentation/performance-benchmarks.md)
