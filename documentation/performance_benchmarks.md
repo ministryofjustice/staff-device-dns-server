@@ -374,6 +374,6 @@ Statistics:
 
 ## Conclusion
 
-With the largest parameter set of one million queries and one thousand clients we were able to hit a load of 2,146,678 queries with a ECS CPUUtilization of approximately 45%.
+With the largest parameter set of one million queries and one thousand clients, the system achieved 2,146,678 queries with a ECS CPU Utilization of approximately 45%.
 
-Based on our tests we believe the system can handle significantly larger spikes in demand.
+Based on these results, the system (as configured) has spare capacity to cater for larger demand spikes.
