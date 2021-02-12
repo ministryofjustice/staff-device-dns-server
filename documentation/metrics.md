@@ -20,14 +20,14 @@ Statistics need to be [enabled](https://bind9.readthedocs.io/en/latest/reference
 
 `curl localhost:8080/json/v1/traffic`
 
-[example](./stats/traffic.json)
+[example](/stats/traffic.json)
 
 ## Network status and socket
 
 `curl localhost:8080/json/v1/net`
 
-[example](./stats/net.json)
+[example](/stats/net.json)
 
 ## Metrics agent
 
-The [metrics agent](../dns-service/metrics/) is written in Ruby and runs directly on the BIND9 container. It publishes custom metrics to Cloudwatch, which then acts as a data source for Grafana. Metrics are published every 10 seconds.
+The [metrics agent](/dns-service/metrics/) is written in Ruby and runs directly on the BIND9 container. It publishes custom metrics to Cloudwatch, which then acts as a data source for Grafana. Metrics are published every 10 seconds.

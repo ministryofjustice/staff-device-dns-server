@@ -18,4 +18,4 @@ aws-vault exec SHARED_SERVICES_VAULT_PROFILE_NAME -- aws ecr get-login-password 
 
 ### Running locally
 
-See the target `run` in the [Makefile](./Makefile)
+See the target `run` in the [Makefile](/Makefile)
