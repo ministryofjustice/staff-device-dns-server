@@ -2,7 +2,7 @@
 
 DNS uses Grafana to display metrics. The Grafana dashboard can be found [here](https://monitoring-alerting.staff.service.justice.gov.uk/d/tm5gLH1Gz/bind-dns-metrics?orgId=1)
 
-The JSON used to configure the dashboard is stored in the [IMA dashboard configuration repo](https://github.com/ministryofjustice/staff-infrastructure-monitoring-config). When updates are made in the dashboard, the JSON needs to be saved and tracked with version control. More information around this can be found in the documentation in IMA repo.
+The JSON used to configure the dashboard is stored in the [IMA dashboard configuration repo](https://github.com/ministryofjustice/staff-infrastructure-monitoring-config). When updates are made in the dashboard, the JSON needs to be saved and tracked with version control. More information around this can be found in the documentation in the IMA repo.
 
 The DNS dashboard is separated into three sections:
 
