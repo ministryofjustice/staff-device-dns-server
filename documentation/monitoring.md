@@ -22,7 +22,7 @@ The alarms section summarizes the state of the system and categorizes them as OK
 
 - `Alerting` shows that the system needs attention
 
-### AWS Metrics
+## AWS Metrics
 
 ![aws](./images/aws_panel.png)
 
@@ -33,7 +33,7 @@ The AWS section displays all the relevant metrics to AWS. These include:
 - [UnHealthyHostCount](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-cloudwatch-metrics.html)
 - [ECS MemoryUtilization and CPUUtilization](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cloudwatch-metrics.html)
 
-### Custom DNS Metrics
+## Custom DNS Metrics
 
 ![custom_dns](./images/custom_panel.png)
 
