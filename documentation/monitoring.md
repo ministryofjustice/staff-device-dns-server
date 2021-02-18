@@ -41,7 +41,7 @@ The Custom section displays all DNS metrics output by [BIND](https://bind9.readt
 
 The dashboards monitor the number of incoming requests, the number of configured records and a subset of [common response codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6) returned by the DNS server. Details of the BIND 9 specific metrics listed below are explained in the [BIND 9 statistics documentation](https://bind9.readthedocs.io/en/latest/reference.html#statistics-counters).
 
-- QrySuccess (NOERROR): 
+- QrySuccess (NOERROR)
 - QrySERVFAIL
 - QryReferral
 - QryNxrrest
