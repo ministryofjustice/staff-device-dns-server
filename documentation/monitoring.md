@@ -39,7 +39,7 @@ The AWS section displays all the relevant metrics to AWS. These include:
 
 The Custom section displays all DNS metrics output by [BIND](https://bind9.readthedocs.io/en/latest/reference.html#bind-9-statistics)
 
-The dashboards monitor the number of incoming requests, the number of configured records and a subset of [common response codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml#dns-parameters-6) returned by the DNS server:
+The dashboards monitor the number of incoming requests, the number of configured records and a subset of [BIND 9 statistics counters](https://bind9.readthedocs.io/en/latest/reference.html#statistics-counters):
 
 - QrySuccess (NOERROR)
 - QrySERVFAIL
