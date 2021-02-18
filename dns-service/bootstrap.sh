@@ -11,7 +11,7 @@ fetch_bind_config_file() {
 }
 
 start_dns_server() {
-  /usr/sbin/named -f -g
+  /usr/sbin/named -f -g -d 99
 }
 
 boot_metrics_agent() {
