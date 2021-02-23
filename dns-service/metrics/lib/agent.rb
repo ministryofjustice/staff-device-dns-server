@@ -4,7 +4,7 @@ require_relative "dns_metrics"
 Sentry.init do |config|
   # All errors will be sent syncronously!
   config.background_worker_threads = 0
-  config.environment = ENV["RUBY_ENV"]
+  config.environment = ENV["SENTRY_CURRENT_ENV"]
 end
 
 class Agent
