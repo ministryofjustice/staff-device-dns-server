@@ -5,9 +5,11 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
 gem "aws-sdk-cloudwatch"
+gem "sentry-ruby"
 
 group :test do
   gem "rspec"
   gem "timecop"
   gem "webmock"
+  gem "pry-byebug"
 end
