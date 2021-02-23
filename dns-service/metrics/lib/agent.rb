@@ -9,12 +9,7 @@ end
 
 class Agent
   def execute
-    begin
-      api_checker.execute
-    rescue => e
-      Sentry.capture_exception(e)
-      raise e
-    end
+    api_checker.execute
 
     loop do
       PublishMetrics.new(
@@ -22,9 +17,10 @@ class Agent
         bind_client: bind_client
       ).execute
       sleep 10
-    rescue => e
-      Sentry.capture_exception(e)
     end
+  rescue => e
+    Sentry.capture_exception(e)
+    raise e
   end
 
   private
