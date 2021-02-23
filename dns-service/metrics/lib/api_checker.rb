@@ -21,8 +21,12 @@ class ApiChecker
       break # Server is up so we can continue
     end
 
-    raise "BIND Stats API is not running" unless is_up
+    raise DnsStatsApiDidNotStartError.new("BIND Stats API is not running") unless is_up
 
     is_up
   end
+
+  private
+
+  class DnsStatsApiDidNotStartError < StandardError; end
 end
