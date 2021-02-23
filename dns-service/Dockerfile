@@ -3,7 +3,7 @@ FROM ${SHARED_SERVICES_ACCOUNT_ID}.dkr.ecr.eu-west-2.amazonaws.com/dns:ruby-2-7-
 
 ARG EXTRA_BUNDLE_CONFIG="without 'test'"
 
-RUN apk --update upgrade && apk add bash bind bind-tools bind-plugins aws-cli \
+RUN apk --update upgrade && apk add bash bind bind-tools bind-plugins aws-cli less \
   && apk add --update --no-cache --virtual deps g++ make openssl-dev bind-dev \
   && wget https://www.dns-oarc.net/files/dnsperf/dnsperf-2.3.4.tar.gz \
   && tar zxvf dnsperf-2.3.4.tar.gz \
@@ -12,7 +12,6 @@ RUN apk --update upgrade && apk add bash bind bind-tools bind-plugins aws-cli \
   && make \
   && strip ./src/dnsperf ./src/resperf \
   && make install \
-  && apk del deps \
   && rm -rf /dnsperf-2.3.4* \
   && chmod 644 /etc/bind/rndc.key
 
@@ -24,6 +23,8 @@ COPY ./metrics ./metrics
 RUN cd metrics && \
   bundle config set no-cache 'true' ${EXTRA_BUNDLE_CONFIG} && \
   bundle install
+
+RUN apk del deps
 
 EXPOSE 53 53/udp
 
