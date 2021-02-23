@@ -17,15 +17,13 @@ class Agent
     end
 
     loop do
-      begin
-        PublishMetrics.new(
-          aws_client: aws_client,
-          bind_client: bind_client
-        ).execute
-        sleep 10
-      rescue => e
-        Sentry.capture_exception(e)
-      end
+      PublishMetrics.new(
+        aws_client: aws_client,
+        bind_client: bind_client
+      ).execute
+      sleep 10
+    rescue => e
+      Sentry.capture_exception(e)
     end
   end
 
