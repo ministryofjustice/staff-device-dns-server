@@ -1,4 +1,9 @@
-DOCKER_COMPOSE = docker-compose -f docker-compose.yml
+ifneq (,$(wildcard ./.env))
+	include .env
+	export
+endif
+
+DOCKER_COMPOSE = docker-compose -f docker-compose.yml --env-file .env
 
 authenticate-docker:
 	./scripts/authenticate_docker.sh
@@ -47,7 +52,7 @@ shell: build-dev
 shell-test: build-dev
 	$(DOCKER_COMPOSE) run --rm dns-test sh
 
-logs: 
+logs:
 	$(DOCKER_COMPOSE) logs --follow
 
 .PHONY: build push publish deploy build-dev stop run test shell shell-test logs authenticate-docker check-container-registry-account-id

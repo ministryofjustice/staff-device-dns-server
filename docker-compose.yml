@@ -1,12 +1,11 @@
 version: "3"
 services:
   dns:
-    build: 
+    build:
       context: ./dns-service
-      args: 
+      args:
         SHARED_SERVICES_ACCOUNT_ID: "${SHARED_SERVICES_ACCOUNT_ID}"
-    environment:
-      LOCAL_DEVELOPMENT: "true"
+    env_file: .env
     volumes:
       - ./dns-service/test_named.conf:/home/named.conf
       - ./dns-service/metrics/:/home/metrics
