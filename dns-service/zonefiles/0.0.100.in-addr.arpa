@@ -1,0 +1,11 @@
+$TTL 900
+@ IN SOA localhost. root.localhost. (
+991079290 ; serial
+28800 ; refresh
+14400 ; retry
+3600000 ; expire
+86400 ; default_ttl
+)
+IN NS ns-1536.awsdns-00.co.uk.
+IN NS awsdns-hostmaster.amazon.com.
+81 IN PTR on-net.internal.prep.vpn.justice.gov.uk

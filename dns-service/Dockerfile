@@ -19,6 +19,7 @@ WORKDIR /home
 
 COPY ./bootstrap.sh ./bootstrap.sh
 COPY ./metrics ./metrics
+COPY ./zonefiles /etc/bind/zones
 
 RUN cd metrics && \
   bundle config set no-cache 'true' ${EXTRA_BUNDLE_CONFIG} && \
