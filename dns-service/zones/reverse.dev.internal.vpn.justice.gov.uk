@@ -1,0 +1,21 @@
+$TTL 604800
+@ IN SOA dev.internal.vpn.justice.gov.uk. root.dev.internal.vpn.justice.gov.uk. (
+1 ; Serial
+604800 ; Refresh
+86400 ; Retry
+2419200 ; Expire
+604800 ) ; Negative Cache TTL
+;
+
+;Name Server Information
+
+@ IN NS ns1.dev.internal.vpn.justice.gov.uk.
+ns1 IN A 100.0.0.1
+
+;Reverse lookup for Name Server
+
+1 IN PTR ns1.dev.internal.vpn.justice.gov.uk.
+
+;PTR Record IP address to HostName
+
+100 IN PTR on-net.dev.internal.vpn.justice.gov.uk.
