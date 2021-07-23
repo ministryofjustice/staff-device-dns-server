@@ -87,6 +87,72 @@ describe PublishMetrics do
         timestamp: timestamp,
         value: 10,
         dimensions: []
+      },
+      {
+        metric_name: "Queryv4",
+        timestamp: timestamp,
+        value: 21,
+        dimensions: []
+      },
+      {
+        metric_name: "Responsev4",
+        timestamp: timestamp,
+        value: 13,
+        dimensions: []
+      },
+      {
+        metric_name: "NXDOMAIN",
+        timestamp: timestamp,
+        value: 3,
+        dimensions: []
+      },
+      {
+        metric_name: "SERVFAIL",
+        timestamp: timestamp,
+        value: 2,
+        dimensions: []
+      },
+      {
+        metric_name: "Retry",
+        timestamp: timestamp,
+        value: 8,
+        dimensions: []
+      },
+      {
+        metric_name: "QueryTimeout",
+        timestamp: timestamp,
+        value: 8,
+        dimensions: []
+      },
+      {
+        metric_name: "QryRTT100",
+        timestamp: timestamp,
+        value: 10,
+        dimensions: []
+      },
+      {
+        metric_name: "QryRTT500",
+        timestamp: timestamp,
+        value: 3,
+        dimensions: []
+      },
+      {
+        metric_name: "BucketSize",
+        timestamp: timestamp,
+        value: 128,
+        dimensions: []
+      },
+      {
+        metric_name: "ClientCookieOut",
+        timestamp: timestamp,
+        value: 21,
+        dimensions: []
+      },
+      {
+        metric_name: "ServerQuota",
+        timestamp: timestamp,
+        value: 1,
+        dimensions: []
       }
     ]
 
