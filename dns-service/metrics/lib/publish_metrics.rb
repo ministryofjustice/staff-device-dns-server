@@ -20,7 +20,7 @@ class PublishMetrics
   private
 
   def generate_cloudwatch_metrics(server_stats)
-    return [] unless server_stats.has_key?("nsstats") and server_stats.has_key?("views")
+    return [] unless server_stats.has_key?("nsstats") && server_stats.has_key?("views")
 
     nsstats = server_stats["nsstats"]
     resolver_stats = server_stats["views"]["_default"]["resolver"]["stats"]
