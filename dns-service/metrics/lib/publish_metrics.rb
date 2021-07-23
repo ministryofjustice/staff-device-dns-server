@@ -20,9 +20,13 @@ class PublishMetrics
   private
 
   def generate_cloudwatch_metrics(server_stats)
-    return [] unless server_stats.has_key?("nsstats")
+    return [] unless server_stats.has_key?("nsstats") and server_stats.has_key?("views")
 
-    server_stats["nsstats"].map { |key, value| generate_metric(key, value) }.compact
+    nsstats = server_stats["nsstats"]
+    resolver_stats = server_stats["views"]["_default"]["resolver"]["stats"]
+    server_stats = nsstats.merge(resolver_stats)
+
+    server_stats.map { |key, value| generate_metric(key, value) }.compact
   end
 
   def generate_zone_metrics(zone_stats)
