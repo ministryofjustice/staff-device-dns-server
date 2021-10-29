@@ -5,7 +5,8 @@ services:
       context: ./dns-service
       args:
         SHARED_SERVICES_ACCOUNT_ID: "${SHARED_SERVICES_ACCOUNT_ID}"
-    env_file: .env
+    environment:
+      LOCAL_DEVELOPMENT: "true"
     volumes:
       - ./dns-service/test_named.conf:/home/named.conf
       - ./dns-service/metrics/:/home/metrics
