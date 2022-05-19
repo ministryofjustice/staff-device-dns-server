@@ -3,8 +3,6 @@ services:
   dns:
     build:
       context: ./dns-service
-      args:
-        SHARED_SERVICES_ACCOUNT_ID: "${SHARED_SERVICES_ACCOUNT_ID}"
     environment:
       LOCAL_DEVELOPMENT: "true"
     volumes:
@@ -17,7 +15,6 @@ services:
       context: ./dns-service
       args:
         EXTRA_BUNDLE_CONFIG: ""
-        SHARED_SERVICES_ACCOUNT_ID: "${SHARED_SERVICES_ACCOUNT_ID}"
     depends_on:
       - dns
     volumes:
