@@ -6,14 +6,11 @@ DOCKER_COMPOSE = docker-compose -f docker-compose.yml
 authenticate-docker:
 	./scripts/authenticate_docker.sh
 
-check-container-registry-account-id:
-	./scripts/check_container_registry_account_id.sh
-
-build: check-container-registry-account-id
-	docker build -t docker_dns ./dns-service --build-arg SHARED_SERVICES_ACCOUNT_ID
+build:
+	docker build -t docker_dns ./dns-service
 
 build-nginx:
-	docker build -t nginx ./nginx --build-arg SHARED_SERVICES_ACCOUNT_ID
+	docker build -t nginx ./nginx
 
 push-nginx:
 	aws ecr get-login-password | docker login --username AWS --password-stdin ${REGISTRY_URL}
@@ -21,7 +18,6 @@ push-nginx:
 	docker push ${REGISTRY_URL}/staff-device-${ENV}-dns-nginx:latest
 
 push:
-	echo ${REGISTRY_URL}
 	aws ecr get-login-password | docker login --username AWS --password-stdin ${REGISTRY_URL}
 	docker tag docker_dns:latest ${REGISTRY_URL}/staff-device-${ENV}-dns:latest
 	docker push ${REGISTRY_URL}/staff-device-${ENV}-dns:latest
