@@ -2,25 +2,40 @@
 
 set -euo pipefail
 
-echo "Running dnsperf..."
-# -s DNS server address
-# -d query file path
-# -c number of clients
-# -Q nuber of requests per second
-# -t timmeout (seconds)
-dnsperf -s dns \
-        -d test_queryfile \
-        -c 1 \
-        -Q 10 \
-        -t 15 > ./test_result
+run_dnsperf_test() {
+  port=$1
+  protocol=$2
+  
+  echo "Running dnsperf on: port $port/$protocol ..."
+ 
+  # -s DNS server address
+  # -p port listening port
+  # -m mode protocol udp/tcp
+  # -d query file path
+  # -c number of clients
+  # -Q nuber of requests per second
+  # -t timmeout (seconds)
 
-has_completed_all_queries=`cat ./test_result | grep "Queries completed:    10 (100.00%)"`
+  dnsperf -s dns \
+          -p $port \
+          -m $protocol \
+          -d test_queryfile \
+          -c 1 \
+          -Q 10 \
+          -t 15 > ./test_result
 
-if [[ -n $has_completed_all_queries ]]; then
-  echo "Succeeded querying"
-  exit 0
-else
-  echo "Failed querying"
-  cat ./test_result
-  exit 1
-fi
+  has_completed_all_queries=`cat ./test_result | grep "Queries completed:    10 (100.00%)"`
+
+  if [[ -n $has_completed_all_queries ]]; then
+    echo "Succeeded querying"
+  else
+    echo "Failed querying"
+    cat ./test_result
+    exit 1
+  fi
+
+}
+
+run_dnsperf_test 53 udp
+run_dnsperf_test 5353 tcp
+
