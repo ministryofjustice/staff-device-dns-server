@@ -26,6 +26,6 @@ RUN cd metrics && \
 
 RUN apk del deps
 
-EXPOSE 53 53/udp 53/TCP
+EXPOSE 53 53/udp
 
 CMD ["./bootstrap.sh"]
