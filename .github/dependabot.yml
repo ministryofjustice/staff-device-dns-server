@@ -13,3 +13,7 @@ updates:
     directory: "/dns-service"
     schedule:
       interval: "daily"
+  - package-ecosystem: "docker"
+    directory: "/nginx"
+    schedule:
+      interval: "daily"
