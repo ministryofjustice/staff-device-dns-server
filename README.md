@@ -25,7 +25,7 @@ Any internal zones will forward to internal DNS servers for resolution and any p
 
 ## CI/CD
 
--   [CI Terraform code - staff-device-dns-server](https://github.com/ministryofjustice/staff-device-dns-server)
--   Terraform module - module "pttp-infrastructure-ci-pipeline-dns-container"
--   AWS Account - MOJ Official (Shared Services)
--   [Pipeline "Staff-Device-DNS-Server"](https://eu-west-2.console.aws.amazon.com/codesuite/codepipeline/pipelines/Staff-Device-DNS-Server/view?region=eu-west-2)
+- [CI Terraform code - staff-device-dns-server](https://github.com/ministryofjustice/staff-device-dns-server)
+- Terraform module - module "pttp-infrastructure-ci-pipeline-dns-container"
+- AWS Account - MOJ Official (Shared Services)
+- [Pipeline "Staff-Device-DNS-Server"](https://eu-west-2.console.aws.amazon.com/codesuite/codepipeline/pipelines/Staff-Device-DNS-Server/view?region=eu-west-2)
