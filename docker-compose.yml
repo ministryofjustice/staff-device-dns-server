@@ -10,6 +10,15 @@ services:
       - ./dns-service/metrics/:/home/metrics
       - ./dns-service/zones:/etc/bind/zones
 
+  dns-perf:
+    build:
+      context: ./dns-local-load-testing
+    depends_on:
+      - dns
+    volumes:
+      - ./dns-service/test_named.conf:/home/named.conf
+      - ./dns-local-load-testing/1k_queryfile:/home/1k_queryfile
+
   dns-test:
     build:
       context: ./dns-service
