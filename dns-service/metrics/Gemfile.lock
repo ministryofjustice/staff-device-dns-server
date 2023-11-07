@@ -47,7 +47,7 @@ GEM
     rspec-support (3.12.0)
     sentry-ruby (5.9.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-    timecop (0.9.6)
+    timecop (0.9.8)
     webmock (3.18.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
