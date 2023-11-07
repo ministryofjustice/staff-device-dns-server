@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    addressable (2.8.1)
+    addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     aws-eventstream (1.2.0)
     aws-partitions (1.780.0)
@@ -30,8 +30,8 @@ GEM
     pry-byebug (3.10.1)
       byebug (~> 11.0)
       pry (>= 0.13, < 0.15)
-    public_suffix (5.0.0)
-    rexml (3.2.5)
+    public_suffix (5.0.3)
+    rexml (3.2.6)
     rspec (3.12.0)
       rspec-core (~> 3.12.0)
       rspec-expectations (~> 3.12.0)
@@ -48,7 +48,7 @@ GEM
     sentry-ruby (5.9.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
     timecop (0.9.6)
-    webmock (3.18.1)
+    webmock (3.19.1)
       addressable (>= 2.8.0)
       crack (>= 0.3.2)
       hashdiff (>= 0.4.0, < 2.0.0)
