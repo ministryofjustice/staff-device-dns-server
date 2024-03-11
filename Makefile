@@ -30,14 +30,14 @@ push: ## Docker tag docker_dns image with latest and push to ECR
 	docker push ${REGISTRY_URL}/staff-device-${ENV}-dns:latest
 
 .PHONY: publish
-publish: ## Build docker image, tag and push  docker_dns:latest, build nginx image, tag with latest and push 
-	$(MAKE} build 
-	$(MAKE} push 
-	$(MAKE} build-nginx 
-	$(MAKE} push-nginx
+publish: ## Build docker image, tag and push  docker_dns:latest, build nginx image, tag with latest and push
+	$(MAKE) build
+	$(MAKE) push
+	$(MAKE) build-nginx
+	$(MAKE) push-nginx
 
 .PHONY: deploy
-deploy: ## Run deploy script 
+deploy: ## Run deploy script
 	./scripts/deploy.sh
 
 .PHONEY: build-dev
@@ -50,24 +50,24 @@ stop: ## Stop and remove containers
 
 .PHONY: run
 run: ## Build dev image and start dns container
-	$(MAKE} build-dev
+	$(MAKE) build-dev
 	$(DOCKER_COMPOSE) up -d dns
 
 .PHONY: test
 test: ## Build dev container, start dns container, run tests
-	$(MAKE} run 
-	$(MAKE} build-dev
+	$(MAKE) run
+	$(MAKE) build-dev
 	$(DOCKER_COMPOSE) run --rm dns-test rspec ./metrics/spec
 	$(DOCKER_COMPOSE) run --rm dns-test ./dns_test.sh
 
 .PHONY: shell
 shell: ## Build dev image and start dns in shell
-	${(MAKE} build-dev
+	$(MAKE) build-dev
 	$(DOCKER_COMPOSE) run --rm dns sh
 
 .PHONY: shell-test
 shell-test: ## Build dev container and tests in shell
-	${MAKE) build-dev
+	$(MAKE) build-dev
 	$(DOCKER_COMPOSE) run --rm dns-test sh
 
 .PHONY: logs
