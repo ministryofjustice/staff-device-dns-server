@@ -62,7 +62,7 @@ test: ## Build dev container, start dns container, run tests
 
 .PHONY: shell
 shell: ## Build dev image and start dns in shell
-	make build-dev
+	${MAKE} build-dev
 	$(DOCKER_COMPOSE) run --rm dns sh
 
 .PHONY: shell-test
