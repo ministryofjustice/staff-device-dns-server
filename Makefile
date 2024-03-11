@@ -11,11 +11,11 @@ authenticate-docker: ## Authenticate docker using ssm paramstore
 
 .PHONY: build
 build: ## Docker build
-	docker build -t docker_dns ./dns-service
+	docker build --platform linux/amd64 -t docker_dns ./dns-service
 
 .PHONY: build-nginx
 build-nginx: ## build nginx
-	docker build -t nginx ./nginx
+	docker build --platform linux/amd64 -t nginx ./nginx
 
 .PHONY: push-nginx
 push-nginx: ## Docker tag nginx with latest and push to ECR
