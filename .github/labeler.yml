@@ -1,7 +1,7 @@
 dhcp-dns:
 - changed-files:
   - any-glob-to-any-file: 
-  - '**'
+    - '**'
 
 documentation:
 - changed-files:
