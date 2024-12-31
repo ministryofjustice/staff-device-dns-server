@@ -14,6 +14,11 @@ start_dns_server() {
   /usr/sbin/named -f -g
 }
 
+start_dns_server_health_check() {
+  source /health-check/.health-check/bin/activate \
+  && python3 /health-check/health-check.py &
+}
+
 boot_metrics_agent() {
   ruby ./metrics/lib/agent.rb &
 }
@@ -21,6 +26,7 @@ boot_metrics_agent() {
 main() {
   fetch_bind_config_file
   boot_metrics_agent
+  start_dns_server_health_check
   start_dns_server
 }
 
