@@ -6,6 +6,15 @@ RUN apk --update upgrade && apk add bash bind bind-tools bind-plugins aws-cli le
   && apk add --update --no-cache --virtual deps g++ make openssl-dev bind-dev \
   && chmod 644 /etc/bind/rndc.key
 
+COPY health-check/ /health-check/
+
+RUN apk add --no-cache python3 py3-pip
+
+RUN python3 -m venv /health-check/.health-check
+RUN source /health-check/.health-check/bin/activate \
+  && pip install -r /health-check/requirements.txt
+
+
 WORKDIR /home
 
 COPY ./bootstrap.sh ./bootstrap.sh
@@ -18,6 +27,6 @@ RUN cd metrics && \
 
 RUN apk del deps
 
-EXPOSE 53/udp 53/tcp
+EXPOSE 53/udp 53/tcp 80/tcp
 
 CMD ["./bootstrap.sh"]
