@@ -5,7 +5,7 @@ services:
       context: ./dns-service
     environment:
       LOCAL_DEVELOPMENT: "true"
-      DNS_HEALTH_CHECK_URL: "foobar.com"
+      DNS_HEALTH_CHECK_URL: "gov.uk"
     volumes:
       - ./dns-service/test_named.conf:/home/named.conf
       - ./dns-service/metrics/:/home/metrics
