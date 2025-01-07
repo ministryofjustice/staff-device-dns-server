@@ -1,5 +1,6 @@
 # Health checks
 
-NGINX is run on the ECS service as a sidecar container. This responds to the health checks. The NGINX image is stored as a base image in the [base images repository](https://github.com/ministryofjustice/staff-device-docker-base-images).
-
-The container is deployed into ECR in the target AWS account, where the DNS service can pull it down and run it.
+A health check [script](../dns-service/health-check/health-check.py). is run on the ECS service container.
+It carries out a dig on the local container its running on. If successful it serves a 200 HTTP responce.
+If the dig is unsuccessful it will serve a 403 HTTP page. This is available on port 80 to be picked up by the AWS load
+balancer target group [health-checks](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-health-checks.html). 
