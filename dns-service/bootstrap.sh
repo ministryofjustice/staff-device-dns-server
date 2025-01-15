@@ -5,7 +5,8 @@ set -e
 fetch_bind_config_file() {
   if [ "$LOCAL_DEVELOPMENT" == "true" ]; then
     cp ./named.conf /etc/bind/named.conf
-
+  else
+    aws s3 cp s3://${BIND_CONFIG_BUCKET_NAME}/named.conf /etc/bind/named.conf
   fi
 }
 
