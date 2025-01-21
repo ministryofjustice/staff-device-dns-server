@@ -11,7 +11,7 @@ fetch_bind_config_file() {
 }
 
 start_dns_server() {
-  /usr/sbin/named -f 2>&1
+  /usr/sbin/named -f -g
 }
 
 start_dns_server_health_check() {
