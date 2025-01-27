@@ -1,4 +1,4 @@
-FROM ruby:3.3.6-alpine3.20
+FROM ruby:3.2.2-alpine3.16
 
 ARG EXTRA_BUNDLE_CONFIG="without 'test'"
 
