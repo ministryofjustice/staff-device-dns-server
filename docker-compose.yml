@@ -5,13 +5,10 @@ services:
       context: ./dns-service
     environment:
       LOCAL_DEVELOPMENT: "true"
-      DNS_HEALTH_CHECK_URL: "gov.uk"
     volumes:
       - ./dns-service/test_named.conf:/home/named.conf
       - ./dns-service/metrics/:/home/metrics
       - ./dns-service/zones:/etc/bind/zones
-    ports:
-      - "127.0.0.1:80:80"
   dns-test:
     build:
       context: ./dns-service
